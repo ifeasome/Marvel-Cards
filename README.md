@@ -2,7 +2,8 @@
 
 ## Project Title: Create a Marvel Superhero 
 
-## Project Description: Users are asked to create a superhero with a soundtrack. 
+## Project Description
+Users are asked to create a superhero with a soundtrack. 
 
 ## Sketch: 
 
@@ -17,7 +18,8 @@
 2.	The Quiz sets the variables we send to the API 
 3.	Call the API to Marvel 
 4.	Call the API 
-5.	The How 
+5.	The How: Parameters section of the API documentation
+    The quiz will have a set of options that we will use for our call 
 
  
 
