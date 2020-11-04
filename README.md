@@ -11,6 +11,8 @@ Users are asked to create a superhero with a soundtrack.
 -	https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0
 -	https://developers.soundcloud.com/docs/api/guide#authentication
 
+## Mock-up 
+
 ## Rough Breakdown 
 
 ### 1. Quiz to gather types of 
@@ -33,3 +35,6 @@ Users are asked to create a superhero with a soundtrack.
 2.	Keep track of the characters created 
 
 ### User Story: 
+As a user I want to create my own Marvel superohero. 
+When I give answers to quiz questions, a superhero picture appears with accompanying soundtrack 
+on autoplay. 
