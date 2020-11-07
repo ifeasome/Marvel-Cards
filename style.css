@@ -1,3 +1,8 @@
+
+.heroPics{
+    display: inline-block;
+    margin: 10px;
+}
 /*
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
@@ -227,4 +232,5 @@ p {
     .banner-head {
         font-size: 3em;
     }
+
 }
