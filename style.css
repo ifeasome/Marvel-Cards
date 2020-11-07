@@ -1,13 +1,52 @@
 
-
+/* styling the pictures of supers */
 .heroPics{
     display: inline-block;
     margin: 10px;
 }
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
+/* styling the search buttons */
+#searchButtons{
+    text-align: center;
+}
+#nameSearchBtn , #alphaSearchBtn, #comicSearchBtn{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    background-color: red;
+    color:white;
+    font-size: x-large;
+}
+#searchBar{
+    text-align: center;
+}
+#searchBarBtn{
+    padding: 12px;
+    font-size: large;
+    background-color: red;
+    color:white;
+}
+#letterComicButtons{
+    text-align: center;
+}
+::placeholder{
+    color:red;
+}
+#heroNameHere, #comicNameHere{
+    color:red;
+    height: 40px;
+    font-size: large;
+}
+.letterBtn, .comicBtn{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: large;
+    background-color: white;
+    color :red;
+}
+ /*  -- BASE STYLES --
+  Most of these are inherited from Base, but I want to change a few.
+ */ 
+
  body {
    background-color: black;
 }

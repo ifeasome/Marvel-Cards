@@ -2,21 +2,21 @@ $(document).ready(function () {
     // this is creating a search for heroes button that will display a text box to enter hero name when clicked
     let nameSearchButton = $("<button>");
     nameSearchButton.attr("id", "nameSearchBtn");
-    nameSearchButton.text("Search for Super's By Name");
+    nameSearchButton.text("Search for Supers By Name");
     $("#searchButtons").append(nameSearchButton);
     $("#nameSearchBtn").on("click", searchSuperByName);
 
     // this is creating the search for heroes button that will display letter buttons when clicked 
     let alphaSearchButton = $("<button>");
     alphaSearchButton.attr("id", "alphaSearchBtn");
-    alphaSearchButton.text("Search for Super's Alphabetically");
+    alphaSearchButton.text("Search for Supers Alphabetically");
     $("#searchButtons").append(alphaSearchButton);
     $("#alphaSearchBtn").on("click", getHeroesAlphabet);
 
     // this is creatin the search for heroes button that will display a text box to enter comic when clicked
     let comicSearchButton = $("<button>");
     comicSearchButton.attr("id", "comicSearchBtn");
-    comicSearchButton.text("Search for Super's By comic");
+    comicSearchButton.text("Search for Supers By Comic");
     $("#searchButtons").append(comicSearchButton);
     $("#comicSearchBtn").on("click", searchSuperByComic);
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
         $("#letterComicButtons").empty();
         let searchBar = $("<input>");
         searchBar.attr("type", "text");
-        searchBar.attr("placeholder", "Comic Name");
+        searchBar.attr("placeholder", "Comic's Name");
         searchBar.attr("id", "comicNameHere");
         let searchBarBtn = $("<button>");
         searchBarBtn.text("Search");
