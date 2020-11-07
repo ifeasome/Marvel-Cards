@@ -20,9 +20,10 @@ $(document).ready(function () {
     $("#searchButtons").append(comicSearchButton);
     $("#comicSearchBtn").on("click", searchSuperByComic);
 
-    // this is creating the search button that will sit next to the search bar (submit button) and triggers the function heroSearch when clicked
+    // this is creating the search box and button and triggers the function heroSearch when button is clicked
     function searchSuperByName() {
-        $("#letterButtons").empty();
+        $("#searchBar").empty();
+        $("#letterComicButtons").empty();
         let searchBar = $("<input>");
         searchBar.attr("type", "text");
         searchBar.attr("placeholder", "Super's Name");
@@ -52,20 +53,59 @@ $(document).ready(function () {
             $("#heroPics").prepend(heroPicImg);
         })
     }
+    // this is creating the search box and button and triggers the function comicSearch when button is clicked
+    function searchSuperByComic(){
+        $("#searchBar").empty();
+        $("#letterComicButtons").empty();
+        let searchBar = $("<input>");
+        searchBar.attr("type", "text");
+        searchBar.attr("placeholder", "Comic Name");
+        searchBar.attr("id", "comicNameHere");
+        let searchBarBtn = $("<button>");
+        searchBarBtn.text("Search");
+        searchBarBtn.attr("id", "searchBarBtn")
+        $("#searchBar").append(searchBar);
+        $("#searchBar").append(searchBarBtn);
+        $("#searchBarBtn").on("click", comicSearch);
+    }
+
+    function comicSearch(){
+        let comicNameSearch = $("#comicNameHere").val();
+        let queryURL = "https://gateway.marvel.com/v1/public/comics?title=" + comicNameSearch + "&limit=20&ts=1&apikey=041b36ff0606f85c2d365e1174d26db6&hash=88a95a7cb326797147690494db18ecdb";
+        let comics =[];
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+            for (let i = 0; i < response.data.results.length; i++) {
+                comics.push(response.data.results[i].title);
+            }
+            for (let i = 0; i < comics.length; i++) {
+                let comicButton = $("<button>");
+                comicButton.text(comics[i]);
+                comicButton.addClass("comicBtn");
+                comicButton.attr("data-comic",comics[i]);
+                $("#letterComicButtons").append(comicButton);
+            }
+        })
+    }
 
     // this function is running an ajax call in a for loop to display heroes alphabetically
     function getHeroesAlphabet() {
         $("#searchBar").empty();
-        $("#letterButtons").empty();
+        $("#letterComicButtons").empty();
         let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         for (let i = 0; i < alphabet.length; i++) {
             let letterButton = $("<button>");
             letterButton.text(alphabet[i]);
             letterButton.addClass("letterBtn");
             letterButton.attr("data-letter", alphabet[i]);
-            $("#letterButtons").append(letterButton);
+            $("#letterComicButtons").append(letterButton);
         }
     }
+
+    $(document).on("click", ".comicBtn", function(){})
 
     // this event listener triggers an ajax call that will search for heroes that start with the letter of the button clicked
     $(document).on("click", ".letterBtn", function (event) {
