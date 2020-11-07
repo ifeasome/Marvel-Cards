@@ -49,16 +49,16 @@ $(document).ready(function () {
     $(document).on("click", ".letterBtn", function (event) {
         $("#heroPics").empty();
         let heroLetter = $(this).attr("data-letter");
-        let queryURL = "https://gateway.marvel.com/v1/public/characters?nameStartsWith=" + heroLetter + "&limit=50&ts=1&apikey=041b36ff0606f85c2d365e1174d26db6&hash=88a95a7cb326797147690494db18ecdb";
+        let queryURL = "https://gateway.marvel.com/v1/public/characters?nameStartsWith=" + heroLetter + "&limit=100&ts=1&apikey=041b36ff0606f85c2d365e1174d26db6&hash=88a95a7cb326797147690494db18ecdb";
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
             console.log(response)
             let alphaLabel = $("<h2>")
-            alphaLabel.text("Heroes Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
+            alphaLabel.text("Supers Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
             $("#heroPics").append(alphaLabel);
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 100; i++) {
                 let heroExtension = response.data.results[i].thumbnail.extension
                 let heroPic = response.data.results[i].thumbnail.path + "/portrait_xlarge." + heroExtension;
                 let heroName = response.data.results[i].name
@@ -72,6 +72,7 @@ $(document).ready(function () {
             }
         })
     });
+    
     // this event listener will alert you the name of any hero clicked
     $(document).on("click", ".heroPics", function () {
         let heroName = $(this).attr("data-name");
