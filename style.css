@@ -1,4 +1,5 @@
 
+
 .heroPics{
     display: inline-block;
     margin: 10px;
@@ -231,6 +232,5 @@ p {
     }
     .banner-head {
         font-size: 3em;
-    }
+    }}
 
-}
