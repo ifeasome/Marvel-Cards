@@ -1,12 +1,39 @@
 $(document).ready(function () {
+    // this is creating a search for heroes button that will display a text box to enter hero name when clicked
+    let nameSearchButton = $("<button>");
+    nameSearchButton.attr("id", "nameSearchBtn");
+    nameSearchButton.text("Search for Super's By Name");
+    $("#searchButtons").append(nameSearchButton);
+    $("#nameSearchBtn").on("click", searchSuperByName);
+
+    // this is creating the search for heroes button that will display letter buttons when clicked 
+    let alphaSearchButton = $("<button>");
+    alphaSearchButton.attr("id", "alphaSearchBtn");
+    alphaSearchButton.text("Search for Super's Alphabetically");
+    $("#searchButtons").append(alphaSearchButton);
+    $("#alphaSearchBtn").on("click", getHeroesAlphabet);
+
+    // this is creatin the search for heroes button that will display a text box to enter comic when clicked
+    let comicSearchButton = $("<button>");
+    comicSearchButton.attr("id", "comicSearchBtn");
+    comicSearchButton.text("Search for Super's By comic");
+    $("#searchButtons").append(comicSearchButton);
+    $("#comicSearchBtn").on("click", searchSuperByComic);
 
     // this is creating the search button that will sit next to the search bar (submit button) and triggers the function heroSearch when clicked
-    let searchBarBtn = $("<button>");
-    searchBarBtn.text("Search");
-    searchBarBtn.attr("id", "searchBarBtn")
-    $("#searchBar").append(searchBarBtn);
-    $("#searchBarBtn").on("click", heroSearch);
-
+    function searchSuperByName() {
+        $("#letterButtons").empty();
+        let searchBar = $("<input>");
+        searchBar.attr("type", "text");
+        searchBar.attr("placeholder", "Super's Name");
+        searchBar.attr("id", "heroNameHere");
+        let searchBarBtn = $("<button>");
+        searchBarBtn.text("Search");
+        searchBarBtn.attr("id", "searchBarBtn")
+        $("#searchBar").append(searchBar);
+        $("#searchBar").append(searchBarBtn);
+        $("#searchBarBtn").on("click", heroSearch);
+    }
     // this function is taking whatever was entered into search bar and grapping the hero that matches that name and displaying it
     function heroSearch() {
         let heroNameSearch = $("#heroNameHere").val();
@@ -25,16 +52,11 @@ $(document).ready(function () {
             $("#heroPics").prepend(heroPicImg);
         })
     }
-    // this is creating the search for heroes button that will call the function getHeroes when clicked
-    let alphaSearchButton = $("<button>");
-    alphaSearchButton.attr("id", "searchBtn");
-    alphaSearchButton.text("Search for Heroes Alphabetically");
-    $("#searchButton").append(alphaSearchButton);
-    $("#searchBtn").on("click", getHeroesAlphabet);
 
     // this function is running an ajax call in a for loop to display heroes alphabetically
     function getHeroesAlphabet() {
-        $("#letterButtons").empty()
+        $("#searchBar").empty();
+        $("#letterButtons").empty();
         let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         for (let i = 0; i < alphabet.length; i++) {
             let letterButton = $("<button>");
@@ -55,7 +77,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response)
-            let alphaLabel = $("<h2>")
+            let alphaLabel = $("<div>")
             alphaLabel.text("Supers Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
             $("#heroPics").append(alphaLabel);
             for (let i = 0; i < 100; i++) {
@@ -72,7 +94,7 @@ $(document).ready(function () {
             }
         })
     });
-    
+
     // this event listener will alert you the name of any hero clicked
     $(document).on("click", ".heroPics", function () {
         let heroName = $(this).attr("data-name");
