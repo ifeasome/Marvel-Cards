@@ -3,6 +3,13 @@
 .heroPics{
     display: inline-block;
     margin: 10px;
+    opacity: .6;
+    border-radius: 20%;
+}
+.heroPics:hover{
+    box-shadow: 0px 0px 10px 10px red;
+    opacity: 1.0;
+    cursor: pointer;
 }
 /* styling the search buttons */
 #searchButtons{
@@ -146,7 +153,7 @@ p {
  * Choose a different color based on the type of pricing table.
  */
 .pricing-table-free .pricing-table-header {
-    background: #519251;
+    background:black;
 }
 
 .pricing-table-biz .pricing-table-header {
