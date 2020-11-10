@@ -54,6 +54,7 @@ $(document).ready(function () {
             heroPicImg.addClass("heroPics");
             heroPicImg.attr("src", heroPic);
             heroPicImg.attr("data-name", heroName);
+            heroPicImg.attr("data-imgSrc", heroPic);
             $("#heroPics").prepend(heroPicImg);
         })
     }
@@ -138,6 +139,7 @@ $(document).ready(function () {
                     heroPicImg.addClass("heroPics");
                     heroPicImg.attr("src", heroPic);
                     heroPicImg.attr("data-name", heroName);
+                    heroPicImg.attr("data-imgSrc", heroPic);
                     $("#heroPics").append(heroPicImg);
                 }
             }
@@ -167,6 +169,7 @@ $(document).ready(function () {
                     heroPicImg.addClass("heroPics");
                     heroPicImg.attr("src", heroPic);
                     heroPicImg.attr("data-name", heroName);
+                    heroPicImg.attr("data-imgSrc", heroPic);
                     $("#heroPics").append(heroPicImg);
                 }
             }
@@ -179,8 +182,23 @@ $(document).ready(function () {
     let modal = document.querySelector(".modal");
     let closeButton = document.querySelector(".close-button");
     
+    // this either opens or closes the modal and adds info to modal
+    let nameSource = "";
+    let picSource ="";
+    let cardStyle ="";
     function toggleModal() {
+        $("#modalInfo").empty();
         modal.classList.toggle("show-modal");
+        nameSource = $(this).attr("data-name");
+        picSource = $(this).attr("data-imgSrc")
+        let heroName = $("<div>");
+        heroName.addClass("modalName");
+        let heroPic = $("<img>");
+        heroPic.addClass("modalPic");
+        heroName.text(nameSource);
+        heroPic.attr("src",picSource);
+        $("#modalInfo").append(heroPic,heroName);
+        
     }
     
     function windowOnClick(event) {
@@ -188,8 +206,10 @@ $(document).ready(function () {
             toggleModal();
         }
     }
-    
-    closeButton.addEventListener("click", toggleModal);
+    function storeCard(){
+
+    }
+    $("#back-button").on("click",toggleModal);
     window.addEventListener("click", windowOnClick);
 });
 

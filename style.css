@@ -1,5 +1,5 @@
 
-/* styling the pictures of supers */
+/* start styling the pictures of supers */
 .heroPics{
     display: inline-block;
     margin: 10px;
@@ -12,7 +12,9 @@
     opacity: 1.0;
     cursor: pointer;
 }
-/* styling the search buttons */
+/* end styling of the pictures of supers */
+
+/* start styling the search buttons */
 #searchButtons{
     text-align: center;
 }
@@ -51,6 +53,46 @@
     background-color: white;
     color :red;
 }
+/* end styling of the search buttons */
+
+/* start styling of the modal info */
+.modalName{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 30px;
+}
+.modalPic{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 50%;
+}
+#save-card{
+    text-align: center;
+    padding:15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    width:118px;
+}
+#back-button{
+    text-align: center;
+    padding:15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    width:118px;
+}
+.pure-radio{
+    display: block;
+    text-align: center;
+    margin-bottom:15px;
+    font-size: large;
+}
+#cardStyleText{
+    text-align: center;
+}
+/* end styling of the modal info */
+
  /*  -- BASE STYLES --
   Most of these are inherited from Base, but I want to change a few.
  */ 

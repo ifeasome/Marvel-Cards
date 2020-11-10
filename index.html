@@ -23,10 +23,18 @@
     <!--- Modal Code -->
     <div class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h1>Hello, I am a modal!</h1>
-            <button id="save-card">Save Card</button>
-            <button id="save-button2">#2 Button</button>
+            <div id="modalInfo"></div>
+            <h2 id ="cardStyleText">Pick a Card Style</h2>
+            <form class="pure-form">
+                <label for="checkbox-radio-option-one" class="pure-radio">
+                    <input type="radio" id="checkbox-radio-option-one" name="optionsRadios" value="option1" checked="" /> Galaxy Card</label>
+                <label for="checkbox-radio-option-two" class="pure-radio">
+                    <input type="radio" id="checkbox-radio-option-two" name="optionsRadios" value="option2" /> Wood Card</label>
+                <label for="checkbox-radio-option-three" class="pure-radio">
+                    <input type="radio" id="checkbox-radio-option-three" name="optionsRadios" value="option3" /> Jelly Bean Card</label>
+            </form>
+            <button id="save-card">Make A Card</button>
+            <button id="back-button">Go Back</button>
         </div>
     </div>
     <!--- / Modal Code -->
@@ -45,7 +53,7 @@
 
         <div class="footer l-box">
             <p>
-             Team Archspire
+                Team Archspire
             </p>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.js"
