@@ -174,9 +174,22 @@ $(document).ready(function () {
     });
 
     // this event listener will alert you the name of any hero clicked
-    $(document).on("click", ".heroPics", function () {
-        let heroName = $(this).attr("data-name");
-        alert(heroName);
-    });
+    $(document).on("click", ".heroPics", toggleModal); 
+       
+    let modal = document.querySelector(".modal");
+    let closeButton = document.querySelector(".close-button");
+    
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+    
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+    
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
 });
 
