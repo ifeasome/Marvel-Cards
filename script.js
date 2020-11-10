@@ -22,6 +22,7 @@ $(document).ready(function () {
 
     // this is creating the search box and button and triggers the function heroSearch when button is clicked
     function searchSuperByName() {
+        $("#heroPics").empty();
         $("#searchBar").empty();
         $("#letterComicButtons").empty();
         let searchBar = $("<input>");
@@ -52,13 +53,14 @@ $(document).ready(function () {
             let heroPicImg = $("<img>");
             heroPicImg.addClass("heroPics");
             heroPicImg.attr("src", heroPic);
-            heroPicImg.attr("data-name", heroName)
+            heroPicImg.attr("data-name", heroName);
             $("#heroPics").prepend(heroPicImg);
         })
     }
 
     // this is creating the search box and button and triggers the function comicSearch when button is clicked
     function searchSuperByComic() {
+        $("#heroPics").empty();
         $("#searchBar").empty();
         $("#letterComicButtons").empty();
         let searchBar = $("<input>");
@@ -83,7 +85,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
+            console.log(response);
             for (let i = 0; i < response.data.results.length; i++) {
                 comics.push(response.data.results[i].title);
             }
@@ -101,6 +103,7 @@ $(document).ready(function () {
 
     // this function is running an ajax call in a for loop to display heroes alphabetically
     function getHeroesAlphabet() {
+        $("#heroPics").empty();
         $("#searchBar").empty();
         $("#letterComicButtons").empty();
         let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -123,6 +126,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             let comicLabel = $("<div>")
+            comicLabel.attr("style","color: red")
             comicLabel.text("Supers In Comic ID " + comicVal + ":");
             $("#heroPics").append(comicLabel);
             for (let i = 0; i < 100; i++) {
@@ -149,8 +153,9 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
-            let alphaLabel = $("<div>")
+            console.log(response);
+            let alphaLabel = $("<div>");
+            alphaLabel.attr("style","color:red");
             alphaLabel.text("Supers Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
             $("#heroPics").append(alphaLabel);
             for (let i = 0; i < 100; i++) {
