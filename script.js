@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    let modal = document.querySelector(".modal");
+    let nameSource = "";
+    let picSource = "";
+    let cardStyle = "";
     // this is creating a search for heroes button that will display a text box to enter hero name when clicked
     let nameSearchButton = $("<button>");
     nameSearchButton.attr("id", "nameSearchBtn");
@@ -116,7 +120,40 @@ $(document).ready(function () {
             $("#letterComicButtons").append(letterButton);
         }
     }
-    
+
+    // this either opens or closes the modal and adds info to modal
+    function toggleModal() {
+        $("#modalInfo").empty();
+        modal.classList.toggle("show-modal");
+        nameSource = $(this).attr("data-name");
+        picSource = $(this).attr("data-imgSrc")
+        let heroName = $("<div>");
+        heroName.addClass("modalName");
+        let heroPic = $("<img>");
+        heroPic.addClass("modalPic");
+        heroName.text(nameSource);
+        heroPic.attr("src", picSource);
+        $("#modalInfo").append(heroPic, heroName);
+    }
+
+      // if outside of the modal is clicked while modal is up close the modal
+      function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    // makes an object called card this is then sent to local storage and then closes modal
+    function storeCard() {
+        let card = {
+            name: nameSource,
+            pic: picSource,
+            style: cardStyle
+        }
+        console.log(card);
+        toggleModal();
+    }
+
     // this event listener is triggered when you click a comic and displays the characters in that comic
     $(document).on("click", ".comicBtn", function (event) {
         $("#heroPics").empty();
@@ -127,7 +164,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             let comicLabel = $("<div>")
-            comicLabel.attr("style","color: red")
+            comicLabel.attr("style", "color: red")
             comicLabel.text("Supers In Comic ID " + comicVal + ":");
             $("#heroPics").append(comicLabel);
             for (let i = 0; i < 100; i++) {
@@ -157,7 +194,7 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
             let alphaLabel = $("<div>");
-            alphaLabel.attr("style","color:red");
+            alphaLabel.attr("style", "color:red");
             alphaLabel.text("Supers Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
             $("#heroPics").append(alphaLabel);
             for (let i = 0; i < 100; i++) {
@@ -177,39 +214,29 @@ $(document).ready(function () {
     });
 
     // this event listener will alert you the name of any hero clicked
-    $(document).on("click", ".heroPics", toggleModal); 
-       
-    let modal = document.querySelector(".modal");
-    let closeButton = document.querySelector(".close-button");
-    
-    // this either opens or closes the modal and adds info to modal
-    let nameSource = "";
-    let picSource ="";
-    let cardStyle ="";
-    function toggleModal() {
-        $("#modalInfo").empty();
-        modal.classList.toggle("show-modal");
-        nameSource = $(this).attr("data-name");
-        picSource = $(this).attr("data-imgSrc")
-        let heroName = $("<div>");
-        heroName.addClass("modalName");
-        let heroPic = $("<img>");
-        heroPic.addClass("modalPic");
-        heroName.text(nameSource);
-        heroPic.attr("src",picSource);
-        $("#modalInfo").append(heroPic,heroName);
-        
-    }
-    
-    function windowOnClick(event) {
-        if (event.target === modal) {
-            toggleModal();
-        }
-    }
-    function storeCard(){
+    $(document).on("click", ".heroPics", toggleModal);
 
-    }
-    $("#back-button").on("click",toggleModal);
+    // changing the value of cardStyle based on which radio button is selected in the modal
+    $("input[type='radio']").on("change", function () {
+        let radioVal = $("input[name='optionsRadios']:checked").val()
+        if (radioVal === "Galaxy Card") {
+            cardStyle = "https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+            return cardStyle;
+        }
+        else if(radioVal === "Wood Card"){
+            cardStyle = "https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+            return cardStyle;
+        }
+        else{
+            cardStyle = "https://images.pexels.com/photos/539447/pexels-photo-539447.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            return cardStyle;
+        }
+    });
+
+    $("#save-card").on("click", storeCard);
+
+    $("#back-button").on("click", toggleModal);
+    
     window.addEventListener("click", windowOnClick);
 });
 
