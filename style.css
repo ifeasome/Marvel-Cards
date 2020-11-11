@@ -357,14 +357,3 @@ p {
 
 }
 
-/*
- * -- PHONE MEDIA QUERIES --
- * On phones, we want to reduce the height and font-size of the banner further
- */
-@media (min-width: 480px) {
-    .banner {
-        height: 400px;
-    }
-    .banner-head {
-        font-size: 3em;
-    }}
