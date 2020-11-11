@@ -1,17 +1,20 @@
 
-/* styling the pictures of supers */
+/* start styling the pictures of supers */
 .heroPics{
     display: inline-block;
     margin: 10px;
     opacity: .6;
     border-radius: 20%;
+    z-index: 0;
 }
 .heroPics:hover{
     box-shadow: 0px 0px 10px 10px red;
     opacity: 1.0;
     cursor: pointer;
 }
-/* styling the search buttons */
+/* end styling of the pictures of supers */
+
+/* start styling the search buttons */
 #searchButtons{
     text-align: center;
 }
@@ -50,6 +53,46 @@
     background-color: white;
     color :red;
 }
+/* end styling of the search buttons */
+
+/* start styling of the modal info */
+.modalName{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 30px;
+}
+.modalPic{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 50%;
+}
+#save-card{
+    text-align: center;
+    padding:15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    width:118px;
+}
+#back-button{
+    text-align: center;
+    padding:15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    width:118px;
+}
+.pure-radio{
+    display: block;
+    text-align: center;
+    margin-bottom:15px;
+    font-size: large;
+}
+#cardStyleText{
+    text-align: center;
+}
+/* end styling of the modal info */
+
  /*  -- BASE STYLES --
   Most of these are inherited from Base, but I want to change a few.
  */ 
@@ -263,6 +306,7 @@ p {
     visibility: hidden;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 1;
 }
 .modal-content {
     position: absolute;
