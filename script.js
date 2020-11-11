@@ -134,7 +134,27 @@ $(document).ready(function () {
         heroName.text(nameSource);
         heroPic.attr("src", picSource);
         $("#modalInfo").append(heroPic, heroName);
+        musicCall(nameSource);
     }
+
+    function musicCall (nameSource){
+        let queryURL="https://cors-anywhere.herokuapp.com/"+"https://api.deezer.com/search/track?q="+nameSource;
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+        console.log(response);
+        let song=response.data[0].id;
+        let playerURL="https://www.deezer.com/plugins/player?format=square&autoplay=true&playlist=false&width=300&height=300&color=EF5466&layout=&size=medium&type=tracks&id="+
+        song+'&app_id=444442';
+
+        let deezerPlayer=$("#player");
+        deezerPlayer.attr("src", playerURL);
+        console.log(nameSource+"I am name source!!!");
+    });
+    }
+
+
 
       // if outside of the modal is clicked while modal is up close the modal
       function windowOnClick(event) {
@@ -150,9 +170,40 @@ $(document).ready(function () {
             pic: picSource,
             style: cardStyle
         }
-        console.log(card);
+        console.log(card); // add local storage here 
+        let superCards = card.name;
+        localStorage.setItem(superCards, JSON.stringify(card));
+        cardMaker();
         toggleModal();
     }
+
+    function cardMaker() {
+        let cards = localStorage.getItem("superCards");
+    // the object should contain the hero name and the card style and the image source
+        if (cards != null) {
+            $("this is a div in html").empty();
+            for (let i = 0; i < cards.length; i++) {
+                let cardEl = $("<div>");
+                cardEl.css("display","inline-block");
+                // cards[i].style should be a url of the background image 
+                let cardStyle = cards[i].style;
+                cardEl.css("background-image", "url(" + cardStyle + ")");
+                let cardPic = $("<img>");
+                // cards[i].source should be the heroPic URL
+                cardPic.attr("src", cards[i].pic);
+                let cardName = $("<h5>");
+                //cards[i].name should be the name of the hero
+                cardName.text(cards[i].name);
+                cardName.css("color","white");
+                cardEl.append(cardPic, cardName);
+                $("#this is a div in html").append(cardEl);
+            }
+        }
+        else {
+            return;
+        }
+    }
+    cardMaker();
 
     // this event listener is triggered when you click a comic and displays the characters in that comic
     $(document).on("click", ".comicBtn", function (event) {
