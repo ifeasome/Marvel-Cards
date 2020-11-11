@@ -134,7 +134,27 @@ $(document).ready(function () {
         heroName.text(nameSource);
         heroPic.attr("src", picSource);
         $("#modalInfo").append(heroPic, heroName);
+        musicCall(nameSource);
     }
+
+    function musicCall (nameSource){
+        let queryURL="https://cors-anywhere.herokuapp.com/"+"https://api.deezer.com/search/track?q="+nameSource;
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+        console.log(response);
+        let song=response.data[0].id;
+        let playerURL="https://www.deezer.com/plugins/player?format=square&autoplay=true&playlist=false&width=300&height=300&color=EF5466&layout=&size=medium&type=tracks&id="+
+        song+'&app_id=444442';
+
+        let deezerPlayer=$("#player");
+        deezerPlayer.attr("src", playerURL);
+        console.log(nameSource+"I am name source!!!");
+    });
+    }
+
+
 
       // if outside of the modal is clicked while modal is up close the modal
       function windowOnClick(event) {
