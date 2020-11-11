@@ -164,6 +164,7 @@ $(document).ready(function () {
 
     // makes an object called card this is then sent to local storage and then closes modal
     function storeCard() {
+        $("#player").attr("src", "")
         let card = {
             name: nameSource,
             pic: picSource,
