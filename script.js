@@ -150,7 +150,8 @@ $(document).ready(function () {
             pic: picSource,
             style: cardStyle
         }
-        console.log(card);
+        console.log(card); // add local storage here 
+        
         toggleModal();
     }
 
