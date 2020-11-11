@@ -170,13 +170,13 @@ $(document).ready(function () {
             pic: picSource,
             style: cardStyle
         }
-        console.log(card); // add local storage here 
+        // setting cards made to locaStorage
         let superCards = card.name;
         localStorage.setItem(superCards, JSON.stringify(card));
         cardMaker();
         toggleModal();
     }
-
+    //incomplete function for displaying super hero cards
     function cardMaker() {
         let cards = localStorage.getItem("superCards");
     // the object should contain the hero name and the card style and the image source
