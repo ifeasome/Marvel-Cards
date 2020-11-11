@@ -126,7 +126,7 @@ $(document).ready(function () {
         $("#modalInfo").empty();
         modal.classList.toggle("show-modal");
         nameSource = $(this).attr("data-name");
-        picSource = $(this).attr("data-imgSrc")
+        picSource = $(this).attr("data-imgSrc");
         let heroName = $("<div>");
         heroName.addClass("modalName");
         let heroPic = $("<img>");
@@ -137,29 +137,28 @@ $(document).ready(function () {
         musicCall(nameSource);
     }
 
-//this function makes a call to deezer api to pull bring back a song
-    function musicCall (nameSource){
-        let queryURL="https://cors-anywhere.herokuapp.com/"+"https://api.deezer.com/search/track?q="+nameSource;
+    //this function makes a call to deezer api to pull bring back a song
+    function musicCall(nameSource) {
+        let queryURL = "https://cors-anywhere.herokuapp.com/" + "https://api.deezer.com/search/track?q=" + nameSource;
         $.ajax({
-        url: queryURL,
-        method: "GET"
-        }).then(function(response) {
-        console.log(response);
-        let song=response.data[0].id;
-        let playerURL="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=400&height=150&color=EF5466&layout=dark&size=medium&type=tracks&id="+
-        song+'&app_id=444442';
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            let song = response.data[0].id;
+            let playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=true&width=400&height=150&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
+                song + "&app_id=444442";
 
-        let deezerPlayer=$("#player");
-        deezerPlayer.attr("src", playerURL);
-    });
+            let deezerPlayer = $("#player");
+            deezerPlayer.attr("src", playerURL);
+        });
     }
 
-
-
-      // if outside of the modal is clicked while modal is up close the modal
-      function windowOnClick(event) {
+    // if outside of the modal is clicked while modal is up close the modal
+    function windowOnClick(event) {
         if (event.target === modal) {
-            toggleModal();
+            modal.classList.toggle("show-modal");
+            $("#player").attr("src","");
         }
     }
 
@@ -174,17 +173,17 @@ $(document).ready(function () {
         let superCards = card.name;
         localStorage.setItem(superCards, JSON.stringify(card));
         cardMaker();
-        toggleModal();
+        modal.classList.toggle("show-modal");
     }
     //incomplete function for displaying super hero cards
     function cardMaker() {
         let cards = localStorage.getItem("superCards");
-    // the object should contain the hero name and the card style and the image source
+        // the object should contain the hero name and the card style and the image source
         if (cards != null) {
             $("this is a div in html").empty();
             for (let i = 0; i < cards.length; i++) {
                 let cardEl = $("<div>");
-                cardEl.css("display","inline-block");
+                cardEl.css("display", "inline-block");
                 // cards[i].style should be a url of the background image 
                 let cardStyle = cards[i].style;
                 cardEl.css("background-image", "url(" + cardStyle + ")");
@@ -194,7 +193,7 @@ $(document).ready(function () {
                 let cardName = $("<h5>");
                 //cards[i].name should be the name of the hero
                 cardName.text(cards[i].name);
-                cardName.css("color","white");
+                cardName.css("color", "white");
                 cardEl.append(cardPic, cardName);
                 $("#this is a div in html").append(cardEl);
             }
@@ -274,11 +273,11 @@ $(document).ready(function () {
             cardStyle = "https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
             return cardStyle;
         }
-        else if(radioVal === "Wood Card"){
+        else if (radioVal === "Wood Card") {
             cardStyle = "https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
             return cardStyle;
         }
-        else{
+        else {
             cardStyle = "https://images.pexels.com/photos/539447/pexels-photo-539447.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             return cardStyle;
         }
@@ -286,7 +285,10 @@ $(document).ready(function () {
 
     $("#save-card").on("click", storeCard);
 
-    $("#back-button").on("click", toggleModal);
-    
+    $("#back-button").on("click", function () {
+        modal.classList.toggle("show-modal");
+        $("#player").attr("src", "");
+    });
+
     window.addEventListener("click", windowOnClick);
 });

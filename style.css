@@ -68,20 +68,18 @@
     margin-bottom: 30px;
     width: 50%;
 }
-#save-card{
+#modal-btn-div{
+    margin-top: 19px;
+}
+.modal-btn{
     text-align: center;
     padding:15px;
     margin-left: 35px;
     margin-right: 35px;
     width:118px;
+    font-size: 12px;
 }
-#back-button{
-    text-align: center;
-    padding:15px;
-    margin-left: 35px;
-    margin-right: 35px;
-    width:118px;
-}
+
 .pure-radio{
     display: block;
     text-align: center;
