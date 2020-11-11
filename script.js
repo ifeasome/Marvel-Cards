@@ -290,4 +290,3 @@ $(document).ready(function () {
     
     window.addEventListener("click", windowOnClick);
 });
-
