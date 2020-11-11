@@ -91,6 +91,12 @@
 }
 /* end styling of the modal info */
 
+/* start iframe styling */
+#player{
+    opacity:0;
+}
+/* end iframe css */
+
  /*  -- BASE STYLES --
   Most of these are inherited from Base, but I want to change a few.
  */ 
