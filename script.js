@@ -150,6 +150,7 @@ $(document).ready(function () {
             song+'&app_id=444442';
         let deezerPlayer=$("#player");
         deezerPlayer.attr("src", playerURL);
+        //music call
         
       
     });
