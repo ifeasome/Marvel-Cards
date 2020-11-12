@@ -5,22 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Added pure.css-->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
 </head>
 
 <body>
     <div class="banner">
         <h1 class="banner-head">
-            Marvel<br>
-            Heros
+            Marvel Heros<br> <i class="fas fa-mask"></i>
+                    <!-- Added Mask Icon-->
         </h1>
     </div>
-    <div id="searchButtons"></div>
-    <div id="searchBar"></div>
-    <div id="letterComicButtons"></div>
+    <!--This is the grid-->
+    <div class="pure-g-r">
+        <div class="pure-u-1-5">
+            <!--this is 1/5th of the viewport. It is position to the left of the screen-->
+                <div id="nameSearchBtn"></div>
+                <div id="searchButtons"></div>
+                <div id="searchBar"></div>
+                <div id="letterComicButtons"></div>
 
+        <div class="pure-u-4-5">
+            <!--we can append the results of the search or the modals, really whatever we want
+            but is the rest of the page to the right-->
+        </div>
+        </div>  
+    </div>
+    
     <!--- Modal Code -->
     <div class="modal">
         <div class="modal-content">
@@ -37,37 +49,22 @@
                     <input type="radio" id="checkbox-radio-option-three" name="optionsRadios" value="Jelly Bean Card" />
                     Jelly Bean Card</label>
             </form>
-            <div id="modal-btn-div">
-                <button class="modal-btn" id="save-card">Make A Card</button>
-                <button class="modal-btn" id="back-button">Go Back</button>
-            </div>
+            <button id="save-card">Make A Card</button>
+            <button id="back-button">Go Back</button>
             <div id="deezer">
-                <iframe id="player" scrolling="no" frameborder="0" allowTransparency="true" src="" width="400"
-                    height="10" allow="autoplay"></iframe>
+                <iframe id="player" scrolling="no" frameborder="0" allowTransparency="true" src="" width="300"
+                    height="300"></iframe>
             </div>
         </div>
     </div>
     <!--- / Modal Code -->
-    <div class="l-content">
-        <div class="pricing-tables pure-g">
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="pricing-table pricing-table-free">
-                    <div class="pricing-table-header">
-                        <span class="pricing-table-price">
-                            <div id="heroPics"></div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end l-content -->
 
-        <div class="footer l-box">
-            <p>
-                Team Archspire
-            </p>
+        <div class="footer"> <p>Team Archspire</p> </footer>
+            
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <!-- Added Font Awesome-->
+        <script src="https://kit.fontawesome.com/c6160e1b23.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="script.js"></script>
 
 </body>
