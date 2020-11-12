@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Added pure.css-->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
 </head>
-
 <body>
     <div class="container">
         <div class="pure-g-r">
@@ -22,19 +23,19 @@
             </div>
         </div>
         <div class="pure-g-r">
-            <div class="pure-u-1 pure-u-md-1">
+            <div class="pure-u-1 pure-u-md-11-24">
                 <div id="searchButtons"></div>
                 <div id="searchBar"></div>
                 <div id="letterButtons"></div>
                 <div id="comicButtons"></div>
             </div>
-        </div>
-
-        <div class="pure-g-r">
-            <div class="pure-u-1 pure-u-md-11-24" id="heroPics"></div>
-            <div class="pure-u-1 pure-u-md-11-24" id="card-gallery">
+            <div class="pure-u-1 pure-u-md-11-24">
                 <h1 id="cardGallery">Card Gallery:</h1>
             </div>
+        </div>
+        <div class="pure-g-r">
+            <div class="pure-u-1 pure-u-md-11-24" id="heroPics"></div>
+            <div class="pure-u-1 pure-u-md-11-24" id="card-gallery"></div>
         </div>
         <!--- Modal Code -->
         <div class="modal">
@@ -79,7 +80,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
 </body>
-
 </html>
