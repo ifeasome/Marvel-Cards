@@ -175,7 +175,7 @@ $(document).ready(function () {
         localStorage.setItem(superCards, JSON.stringify(card));
         cardMaker();
         modal.classList.toggle("show-modal");
-
+ //incomplete function for displaying super hero cards
         function cardMaker() {
             let cards = localStorage.getItem(superCards);
             // the object should contain the hero name and the card style and the image source
@@ -204,7 +204,6 @@ $(document).ready(function () {
         }
         cardMaker();
     }
-    //incomplete function for displaying super hero cards
 
     // this event listener is triggered when you click a comic and displays the characters in that comic
     $(document).on("click", ".comicBtn", function (event) {
