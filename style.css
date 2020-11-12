@@ -108,6 +108,14 @@ html, body {
     width:118px;
     font-size: 12px;
 }
+#music-button{
+    text-align: center;
+    padding:15px;
+    width:118px;
+    font-size: 12px;
+    margin-left:132px;
+    margin-bottom: 10px;
+}
 
 .pure-radio{
     display: block;
