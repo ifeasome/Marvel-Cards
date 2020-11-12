@@ -3,7 +3,7 @@ $(document).ready(function () {
     let nameSource = "";
     let picSource = "";
     let cardStyle = "";
-
+    let playerURL = "";
     // this is creating a search for heroes button that will display a text box to enter hero name when clicked
     let nameSearchButton = $("<button>");
     nameSearchButton.attr("id", "nameSearchBtn");
@@ -11,12 +11,12 @@ $(document).ready(function () {
     $("#searchButtons").append(nameSearchButton);
     $("#nameSearchBtn").on("click", searchSuperByName);
 
-     // this is creatin the search for heroes button that will display a text box to enter comic when clicked
-     let comicSearchButton = $("<button>");
-     comicSearchButton.attr("id", "comicSearchBtn");
-     comicSearchButton.text("Search Supers By Comic");
-     $("#searchButtons").append(comicSearchButton);
-     $("#comicSearchBtn").on("click", searchSuperByComic);
+    // this is creatin the search for heroes button that will display a text box to enter comic when clicked
+    let comicSearchButton = $("<button>");
+    comicSearchButton.attr("id", "comicSearchBtn");
+    comicSearchButton.text("Search Supers By Comic");
+    $("#searchButtons").append(comicSearchButton);
+    $("#comicSearchBtn").on("click", searchSuperByComic);
 
     // this is creating the search for heroes button that will display letter buttons when clicked 
     let alphaSearchButton = $("<button>");
@@ -129,6 +129,7 @@ $(document).ready(function () {
     // this either opens or closes the modal and adds info to modal
     function toggleModal() {
         $("#modalInfo").empty();
+        $("#music-button").text("Pause Music");
         modal.classList.toggle("show-modal");
         nameSource = $(this).attr("data-name");
         picSource = $(this).attr("data-imgSrc");
@@ -150,12 +151,21 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            let song = response.data[0].id;
-            let playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
-                song + "&app_id=444442";
+            if (response.total === 0) {
+                let song = 17840804;
+                playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
+                    song + "&app_id=444442";
+                let deezerPlayer = $("#player");
+                deezerPlayer.attr("src", playerURL);
+            }
+            else {
+                let song = response.data[0].id;
+                playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
+                    song + "&app_id=444442";
 
-            let deezerPlayer = $("#player");
-            deezerPlayer.attr("src", playerURL);
+                let deezerPlayer = $("#player");
+                deezerPlayer.attr("src", playerURL);
+            }
         });
     }
 
@@ -163,7 +173,7 @@ $(document).ready(function () {
     function windowOnClick(event) {
         if (event.target === modal) {
             modal.classList.toggle("show-modal");
-            $("#player").attr("src","");
+            $("#player").attr("src", "");
         }
     }
 
@@ -220,9 +230,9 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             let comicLabel = $("<div>")
-            comicLabel.css("color","red");
-            comicLabel.css("font-size","35px");
-            comicLabel.css("text-decoration","underline");
+            comicLabel.css("color", "red");
+            comicLabel.css("font-size", "35px");
+            comicLabel.css("text-decoration", "underline");
             comicLabel.text("Supers In Comic ID " + comicVal + ":");
             $("#heroPics").append(comicLabel);
             for (let i = 0; i < 100; i++) {
@@ -252,9 +262,9 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
             let alphaLabel = $("<div>");
-            alphaLabel.css("color","red");
-            alphaLabel.css("font-size","35px");
-            alphaLabel.css("text-decoration","underline");
+            alphaLabel.css("color", "red");
+            alphaLabel.css("font-size", "35px");
+            alphaLabel.css("text-decoration", "underline");
             alphaLabel.text("Supers Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
             $("#heroPics").append(alphaLabel);
             for (let i = 0; i < 100; i++) {
@@ -299,6 +309,18 @@ $(document).ready(function () {
         modal.classList.toggle("show-modal");
         $("#player").attr("src", "");
     });
+
+    $("#music-button").on("click",function(){
+        if($("#music-button").text()==="Pause Music"){
+            $("#music-button").text("Play Music");
+            $("#player").attr("src", "");
+        }
+        else{
+            $("#music-button").text("Pause Music");
+            $("#player").attr("src", playerURL);
+            console.log(playerURL);
+        }
+    })
 
     window.addEventListener("click", windowOnClick);
 });
