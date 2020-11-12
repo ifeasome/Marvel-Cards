@@ -3,7 +3,7 @@ $(document).ready(function () {
     let nameSource = "";
     let picSource = "";
     let cardStyle = "";
-
+    let playerURL = "";
     // this is creating a search for heroes button that will display a text box to enter hero name when clicked
     let nameSearchButton = $("<button>");
     nameSearchButton.attr("id", "nameSearchBtn");
@@ -129,6 +129,7 @@ $(document).ready(function () {
     // this either opens or closes the modal and adds info to modal
     function toggleModal() {
         $("#modalInfo").empty();
+        $("#music-button").text("Pause Music");
         modal.classList.toggle("show-modal");
         nameSource = $(this).attr("data-name");
         picSource = $(this).attr("data-imgSrc");
@@ -152,14 +153,14 @@ $(document).ready(function () {
             console.log(response);
             if (response.total === 0) {
                 let song = 17840804;
-                let playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
+                playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
                     song + "&app_id=444442";
                 let deezerPlayer = $("#player");
                 deezerPlayer.attr("src", playerURL);
             }
             else {
                 let song = response.data[0].id;
-                let playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
+                playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
                     song + "&app_id=444442";
 
                 let deezerPlayer = $("#player");
@@ -308,6 +309,18 @@ $(document).ready(function () {
         modal.classList.toggle("show-modal");
         $("#player").attr("src", "");
     });
+
+    $("#music-button").on("click",function(){
+        if($("#music-button").text()==="Pause Music"){
+            $("#music-button").text("Play Music");
+            $("#player").attr("src", "");
+        }
+        else{
+            $("#music-button").text("Pause Music");
+            $("#player").attr("src", playerURL);
+            console.log(playerURL);
+        }
+    })
 
     window.addEventListener("click", windowOnClick);
 });
