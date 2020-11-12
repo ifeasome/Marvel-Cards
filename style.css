@@ -68,20 +68,18 @@
     margin-bottom: 30px;
     width: 50%;
 }
-#save-card{
+#modal-btn-div{
+    margin-top: 19px;
+}
+.modal-btn{
     text-align: center;
     padding:15px;
     margin-left: 35px;
     margin-right: 35px;
     width:118px;
+    font-size: 12px;
 }
-#back-button{
-    text-align: center;
-    padding:15px;
-    margin-left: 35px;
-    margin-right: 35px;
-    width:118px;
-}
+
 .pure-radio{
     display: block;
     text-align: center;
@@ -92,6 +90,12 @@
     text-align: center;
 }
 /* end styling of the modal info */
+
+/* start iframe styling */
+#player{
+    opacity:0;
+}
+/* end iframe css */
 
  /*  -- BASE STYLES --
   Most of these are inherited from Base, but I want to change a few.

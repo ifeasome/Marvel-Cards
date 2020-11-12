@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Added pure.css-->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-        integrity="sha384-4ZPLezkTZTsojWFhpdFembdzFudphhoOzIunR1wH6g1WQDzCAiPvDyitaK67mp0+" crossorigin="anonymous">
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -37,11 +37,13 @@
                     <input type="radio" id="checkbox-radio-option-three" name="optionsRadios" value="Jelly Bean Card" />
                     Jelly Bean Card</label>
             </form>
-            <button id="save-card">Make A Card</button>
-            <button id="back-button">Go Back</button>
+            <div id="modal-btn-div">
+                <button class="modal-btn" id="save-card">Make A Card</button>
+                <button class="modal-btn" id="back-button">Go Back</button>
+            </div>
             <div id="deezer">
                 <iframe id="player" scrolling="no" frameborder="0" allowTransparency="true" src="" width="400"
-                    height="150"></iframe>
+                    height="10" allow="autoplay"></iframe>
             </div>
         </div>
     </div>
