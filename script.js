@@ -3,32 +3,34 @@ $(document).ready(function () {
     let nameSource = "";
     let picSource = "";
     let cardStyle = "";
+
     // this is creating a search for heroes button that will display a text box to enter hero name when clicked
     let nameSearchButton = $("<button>");
     nameSearchButton.attr("id", "nameSearchBtn");
-    nameSearchButton.text("Search for Supers By Name");
+    nameSearchButton.text("Search Supers By Name");
     $("#searchButtons").append(nameSearchButton);
     $("#nameSearchBtn").on("click", searchSuperByName);
+
+     // this is creatin the search for heroes button that will display a text box to enter comic when clicked
+     let comicSearchButton = $("<button>");
+     comicSearchButton.attr("id", "comicSearchBtn");
+     comicSearchButton.text("Search Supers By Comic");
+     $("#searchButtons").append(comicSearchButton);
+     $("#comicSearchBtn").on("click", searchSuperByComic);
 
     // this is creating the search for heroes button that will display letter buttons when clicked 
     let alphaSearchButton = $("<button>");
     alphaSearchButton.attr("id", "alphaSearchBtn");
-    alphaSearchButton.text("Search for Supers Alphabetically");
+    alphaSearchButton.text("Search Supers By Alphabet");
     $("#searchButtons").append(alphaSearchButton);
     $("#alphaSearchBtn").on("click", getHeroesAlphabet);
-
-    // this is creatin the search for heroes button that will display a text box to enter comic when clicked
-    let comicSearchButton = $("<button>");
-    comicSearchButton.attr("id", "comicSearchBtn");
-    comicSearchButton.text("Search for Supers By Comic");
-    $("#searchButtons").append(comicSearchButton);
-    $("#comicSearchBtn").on("click", searchSuperByComic);
 
     // this is creating the search box and button and triggers the function heroSearch when button is clicked
     function searchSuperByName() {
         $("#heroPics").empty();
+        $("#letterButtons").empty();
+        $("#comicButtons").empty();
         $("#searchBar").empty();
-        $("#letterComicButtons").empty();
         let searchBar = $("<input>");
         searchBar.attr("type", "text");
         searchBar.attr("placeholder", "Super's Name");
@@ -43,7 +45,8 @@ $(document).ready(function () {
 
     // this function is taking whatever was entered into search bar and grapping the hero that matches that name and displaying it
     function heroSearch() {
-        $("#letterComicButtons").empty();
+        $("#letterButtons").empty();
+        $("#comicButtons").empty();
         $("#heroPics").empty();
         let heroNameSearch = $("#heroNameHere").val();
         let queryURL = "https://gateway.marvel.com/v1/public/characters?name=" + heroNameSearch + "&ts=1&apikey=041b36ff0606f85c2d365e1174d26db6&hash=88a95a7cb326797147690494db18ecdb";
@@ -67,7 +70,8 @@ $(document).ready(function () {
     function searchSuperByComic() {
         $("#heroPics").empty();
         $("#searchBar").empty();
-        $("#letterComicButtons").empty();
+        $("#letterButtons").empty();
+        $("#comicButtons").empty();
         let searchBar = $("<input>");
         searchBar.attr("type", "text");
         searchBar.attr("placeholder", "Comic's Name");
@@ -85,7 +89,7 @@ $(document).ready(function () {
         let comicNameSearch = $("#comicNameHere").val();
         let queryURL = "https://gateway.marvel.com/v1/public/comics?title=" + comicNameSearch + "&limit=20&ts=1&apikey=041b36ff0606f85c2d365e1174d26db6&hash=88a95a7cb326797147690494db18ecdb";
         let comics = [];
-        $("#letterComicButtons").empty();
+        $("#comicButtons").empty();
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -100,7 +104,7 @@ $(document).ready(function () {
                     comicButton.text(comics[i]);
                     comicButton.addClass("comicBtn");
                     comicButton.attr("data-comicId", response.data.results[i].id);
-                    $("#letterComicButtons").append(comicButton);
+                    $("#comicButtons").append(comicButton);
                 }
             }
         })
@@ -110,14 +114,15 @@ $(document).ready(function () {
     function getHeroesAlphabet() {
         $("#heroPics").empty();
         $("#searchBar").empty();
-        $("#letterComicButtons").empty();
+        $("#letterButtons").empty();
+        $("#comicButtons").empty();
         let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         for (let i = 0; i < alphabet.length; i++) {
             let letterButton = $("<button>");
             letterButton.text(alphabet[i]);
             letterButton.addClass("letterBtn");
             letterButton.attr("data-letter", alphabet[i]);
-            $("#letterComicButtons").append(letterButton);
+            $("#letterButtons").append(letterButton);
         }
     }
 
@@ -245,7 +250,9 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
             let alphaLabel = $("<div>");
-            alphaLabel.attr("style", "color:red");
+            alphaLabel.css("color","red");
+            alphaLabel.css("font-size","35px");
+            alphaLabel.css("text-decoration","underline");
             alphaLabel.text("Supers Whose Name Starts With " + event.currentTarget.attributes[1].value + " :");
             $("#heroPics").append(alphaLabel);
             for (let i = 0; i < 100; i++) {

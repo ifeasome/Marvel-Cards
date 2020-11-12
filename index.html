@@ -11,64 +11,66 @@
 </head>
 
 <body>
-    <div class="banner">
-        <h1 class="banner-head">
-            Marvel<br>
-            Heros
-        </h1>
-    </div>
-    <div id="searchButtons"></div>
-    <div id="searchBar"></div>
-    <div id="letterComicButtons"></div>
-
-    <!--- Modal Code -->
-    <div class="modal">
-        <div class="modal-content">
-            <div id="modalInfo"></div>
-            <h2 id="cardStyleText">Pick a Card Style</h2>
-            <form class="pure-form" id="cardStyleForm">
-                <label for="checkbox-radio-option-one" class="pure-radio">
-                    <input type="radio" id="checkbox-radio-option-one" name="optionsRadios" value="Galaxy Card"
-                        checked="" /> Galaxy Card</label>
-                <label for="checkbox-radio-option-two" class="pure-radio">
-                    <input type="radio" id="checkbox-radio-option-two" name="optionsRadios" value="Wood Card" /> Wood
-                    Card</label>
-                <label for="checkbox-radio-option-three" class="pure-radio">
-                    <input type="radio" id="checkbox-radio-option-three" name="optionsRadios" value="Jelly Bean Card" />
-                    Jelly Bean Card</label>
-            </form>
-            <div id="modal-btn-div">
-                <button class="modal-btn" id="save-card">Make A Card</button>
-                <button class="modal-btn" id="back-button">Go Back</button>
-            </div>
-            <div id="deezer">
-                <iframe id="player" scrolling="no" frameborder="0" allowTransparency="true" src="" width="400"
-                    height="10" allow="autoplay"></iframe>
+    <div class="container">
+        <div class="banner">
+            <h1 class="banner-head">
+                Marvel Character Cards
+            </h1>
+        </div>
+        <div class="pure-g-r">
+            <div class="pure-u-1">
+                <div id="searchButtons"></div>
+                <div id="searchBar"></div>
+                <div id="letterButtons"></div>
+                <div id="comicButtons"></div>
             </div>
         </div>
-    </div>
-    <!--- / Modal Code -->
-    <div class="l-content">
-        <div class="pricing-tables pure-g">
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="pricing-table pricing-table-free">
-                    <div class="pricing-table-header">
-                        <span class="pricing-table-price">
-                            <div id="heroPics"></div>
-                        </span>
-                    </div>
+
+        <div class="pure-g-r">
+            <div class="pure-u-11-24" id="heroPics"></div>
+            <div class="pure-u-11-24" id="card-gallery">
+                <h1 id="cardGallery">Card Gallery:</h1>
+            </div>
+        </div>
+        <!--- Modal Code -->
+        <div class="modal">
+            <div class="modal-content">
+                <div id="modalInfo"></div>
+                <h2 id="cardStyleText">Pick a Card Style</h2>
+                <form class="pure-form" id="cardStyleForm">
+                    <label for="checkbox-radio-option-one" class="pure-radio">
+                        <input type="radio" id="checkbox-radio-option-one" name="optionsRadios" value="Galaxy Card"
+                            checked="" /> Galaxy Card</label>
+                    <label for="checkbox-radio-option-two" class="pure-radio">
+                        <input type="radio" id="checkbox-radio-option-two" name="optionsRadios" value="Wood Card" />
+                        Wood
+                        Card</label>
+                    <label for="checkbox-radio-option-three" class="pure-radio">
+                        <input type="radio" id="checkbox-radio-option-three" name="optionsRadios"
+                            value="Jelly Bean Card" />
+                        Jelly Bean Card</label>
+                </form>
+                <div id="modal-btn-div">
+                    <button class="modal-btn" id="save-card">Make A Card</button>
+                    <button class="modal-btn" id="back-button">Go Back</button>
+                </div>
+                <div id="deezer">
+                    <iframe id="player" scrolling="no" frameborder="0" allowTransparency="true" src="" width="400"
+                        height="10" allow="autoplay"></iframe>
                 </div>
             </div>
-        </div> <!-- end l-content -->
-
-        <div class="footer l-box">
-            <p>
-                Team Archspire
-            </p>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+        <!--- / Modal Code -->
+        <div id="space"></div>
+    </div>
+    <div class="footer l-box">
+        <p>
+            Team Archspire
+        </p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 
 </body>
 
