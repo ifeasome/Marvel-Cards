@@ -14,7 +14,7 @@ html, body {
 /* end sticky footer css */
 #cardGallery{
     text-align: center;
-    color:white;
+    color:red;
     margin-top: 0px;
     font-size: 80px;
     text-decoration: underline;
@@ -44,7 +44,7 @@ html, body {
     margin-bottom: 10px;
     background-color: red;
     color:white;
-    font-size: large;
+    font-size: x-large;
 }
 #searchBar{
     text-align: center;
@@ -129,14 +129,7 @@ html, body {
  body {
    background-color: black;
 }
-
-/*
- * -- BANNER --
- * The top banner with the headings. By using a combination
- * of `display: table;` and `display: table-cell;`, we can
- * vertically center the text.
- */
-
+/* Start banner css */
 .banner {
     background-color: red; 
     text-align: center;
@@ -158,6 +151,7 @@ html, body {
         font-weight: 500;
         text-shadow: 0 1px 1px black;
     }
+    /* end banner css */
 .footer {
     background: #111;
     color: #888;
@@ -166,7 +160,7 @@ html, body {
     font-size: large;
 }
 
-/****** CSS Modal For Modal ******/
+/****** start CSS For Modal ******/
 .modal {
     position: fixed;
     left: 0;
@@ -179,6 +173,7 @@ html, body {
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     z-index: 1;
+    background-color: black;
 }
 .modal-content {
     position: absolute;
@@ -189,6 +184,7 @@ html, body {
     padding: 1rem 1.5rem;
     width: 24rem;
     border-radius: 0.5rem;
+    background-color: red;
 }
 .close-button {
     float: right;
@@ -208,4 +204,4 @@ html, body {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-/***** CSS Modal For Modal - Ends Here ******/
+/***** End css for modal ******/

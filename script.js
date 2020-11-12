@@ -220,7 +220,9 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             let comicLabel = $("<div>")
-            comicLabel.attr("style", "color: red")
+            comicLabel.css("color","red");
+            comicLabel.css("font-size","35px");
+            comicLabel.css("text-decoration","underline");
             comicLabel.text("Supers In Comic ID " + comicVal + ":");
             $("#heroPics").append(comicLabel);
             for (let i = 0; i < 100; i++) {
