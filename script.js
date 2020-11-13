@@ -4,27 +4,25 @@ $(document).ready(function () {
     let picSource = "";
     let cardStyle = "";
     let playerURL = "";
+    cardMaker();
     // this is creating a search for heroes button that will display a text box to enter hero name when clicked
     let nameSearchButton = $("<button>");
     nameSearchButton.attr("id", "nameSearchBtn");
     nameSearchButton.text("Search Supers By Name");
     $("#searchButtons").append(nameSearchButton);
     $("#nameSearchBtn").on("click", searchSuperByName);
-
     // this is creatin the search for heroes button that will display a text box to enter comic when clicked
     let comicSearchButton = $("<button>");
     comicSearchButton.attr("id", "comicSearchBtn");
     comicSearchButton.text("Search Supers By Comic");
     $("#searchButtons").append(comicSearchButton);
     $("#comicSearchBtn").on("click", searchSuperByComic);
-
     // this is creating the search for heroes button that will display letter buttons when clicked 
     let alphaSearchButton = $("<button>");
     alphaSearchButton.attr("id", "alphaSearchBtn");
     alphaSearchButton.text("Search Supers By Alphabet");
     $("#searchButtons").append(alphaSearchButton);
     $("#alphaSearchBtn").on("click", getHeroesAlphabet);
-
     // this is creating the search box and button and triggers the function heroSearch when button is clicked
     function searchSuperByName() {
         $("#heroPics").empty();
@@ -42,7 +40,6 @@ $(document).ready(function () {
         $("#searchBar").append(searchBarBtn);
         $("#searchBarBtn").on("click", heroSearch);
     }
-
     // this function is taking whatever was entered into search bar and grapping the hero that matches that name and displaying it
     function heroSearch() {
         $("#letterButtons").empty();
@@ -65,7 +62,6 @@ $(document).ready(function () {
             $("#heroPics").prepend(heroPicImg);
         })
     }
-
     // this is creating the search box and button and triggers the function comicSearch when button is clicked
     function searchSuperByComic() {
         $("#heroPics").empty();
@@ -83,7 +79,6 @@ $(document).ready(function () {
         $("#searchBar").append(searchBarBtn);
         $("#searchBarBtn").on("click", comicSearch);
     }
-
     // this function creates buttons for each comic that was returned from comic search that has characters in it
     function comicSearch() {
         let comicNameSearch = $("#comicNameHere").val();
@@ -109,7 +104,6 @@ $(document).ready(function () {
             }
         })
     }
-
     // this function is running an ajax call in a for loop to display heroes alphabetically
     function getHeroesAlphabet() {
         $("#heroPics").empty();
@@ -125,8 +119,7 @@ $(document).ready(function () {
             $("#letterButtons").append(letterButton);
         }
     }
-
-    // this either opens or closes the modal and adds info to modal
+// this either opens or closes the modal and adds info to modal
     function toggleModal() {
         $("#modalInfo").empty();
         $("#music-button").text("Pause Music");
@@ -142,7 +135,6 @@ $(document).ready(function () {
         $("#modalInfo").append(heroPic, heroName);
         musicCall(nameSource);
     }
-
     //this function makes a call to deezer api to pull bring back a song
     function musicCall(nameSource) {
         let queryURL = "https://cors-anywhere.herokuapp.com/" + "https://api.deezer.com/search/track?q=" + nameSource;
@@ -162,13 +154,11 @@ $(document).ready(function () {
                 let song = response.data[0].id;
                 playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
                     song + "&app_id=444442";
-
                 let deezerPlayer = $("#player");
                 deezerPlayer.attr("src", playerURL);
             }
         });
     }
-
     // if outside of the modal is clicked while modal is up close the modal
     function windowOnClick(event) {
         if (event.target === modal) {
@@ -176,7 +166,6 @@ $(document).ready(function () {
             $("#player").attr("src", "");
         }
     }
-
     // makes an object called card this is then sent to local storage and then closes modal
     function storeCard() {
         $("#player").attr("src", "")
@@ -186,40 +175,39 @@ $(document).ready(function () {
             style: cardStyle
         }
         // setting cards made to locaStorage
-        let superCards = card.name;
-        localStorage.setItem(superCards, JSON.stringify(card));
+        localStorage.setItem(localStorage.length, JSON.stringify(card));
         cardMaker();
         modal.classList.toggle("show-modal");
     }
-    //incomplete function for displaying super hero cards
+    // function for displaying super hero cards
     function cardMaker() {
-        let cards = localStorage.getItem("superCards");
-        // the object should contain the hero name and the card style and the image source
-        if (cards != null) {
-            $("this is a div in html").empty();
+        let cards = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            let newCard = JSON.parse(localStorage.getItem(i));
+            cards.push(newCard);
+            console.log(cards);
+        }
+        if (cards.length != null) {
+            $("#card-gallery").empty();
             for (let i = 0; i < cards.length; i++) {
                 let cardEl = $("<div>");
-                cardEl.css("display", "inline-block");
-                // cards[i].style should be a url of the background image 
+                cardEl.addClass("cardEl");
                 let cardStyle = cards[i].style;
                 cardEl.css("background-image", "url(" + cardStyle + ")");
                 let cardPic = $("<img>");
-                // cards[i].source should be the heroPic URL
+                cardPic.addClass("cardPic");
                 cardPic.attr("src", cards[i].pic);
                 let cardName = $("<h5>");
-                //cards[i].name should be the name of the hero
                 cardName.text(cards[i].name);
-                cardName.css("color", "white");
+                cardName.addClass("cardName");
                 cardEl.append(cardPic, cardName);
-                $("#this is a div in html").append(cardEl);
+                $("#card-gallery").prepend(cardEl);
             }
         }
         else {
             return;
         }
     }
-    cardMaker();
-
     // this event listener is triggered when you click a comic and displays the characters in that comic
     $(document).on("click", ".comicBtn", function (event) {
         $("#heroPics").empty();
@@ -250,7 +238,6 @@ $(document).ready(function () {
             }
         })
     })
-
     // this event listener triggers an ajax call that will search for heroes that start with the letter of the button clicked
     $(document).on("click", ".letterBtn", function (event) {
         $("#heroPics").empty();
@@ -282,10 +269,8 @@ $(document).ready(function () {
             }
         })
     });
-
     // this event listener will alert you the name of any hero clicked
     $(document).on("click", ".heroPics", toggleModal);
-
     // changing the value of cardStyle based on which radio button is selected in the modal
     $("input[type='radio']").on("change", function () {
         let radioVal = $("input[name='optionsRadios']:checked").val()
@@ -302,14 +287,11 @@ $(document).ready(function () {
             return cardStyle;
         }
     });
-
     $("#save-card").on("click", storeCard);
-
     $("#back-button").on("click", function () {
         modal.classList.toggle("show-modal");
         $("#player").attr("src", "");
     });
-
     $("#music-button").on("click",function(){
         if($("#music-button").text()==="Pause Music"){
             $("#music-button").text("Play Music");
@@ -321,6 +303,5 @@ $(document).ready(function () {
             console.log(playerURL);
         }
     })
-
     window.addEventListener("click", windowOnClick);
 });
