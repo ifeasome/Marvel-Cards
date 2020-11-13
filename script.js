@@ -154,6 +154,24 @@ $(document).ready(function () {
         });
     }
 
+    //easter egg
+    $("#teamName").on("click", function(){
+        let teamName="369681531";
+        let teamURL = "https://cors-anywhere.herokuapp.com/" + "https://api.deezer.com/search/track?q=" + teamName;
+        $.ajax({
+            url: teamURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+               let playerURL = "https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=400&height=10&color=EF5466&layout=dark&size=medium&type=tracks&id=" +
+                teamName+ "&app_id=444442";
+
+            let deezerPlayer = $("#player");
+            deezerPlayer.attr("src", playerURL);
+    });
+    });
+
+
     // if outside of the modal is clicked while modal is up close the modal
     function windowOnClick(event) {
         if (event.target === modal) {
