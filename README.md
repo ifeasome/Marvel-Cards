@@ -4,7 +4,7 @@ Utilising two server side API, this application creates a Marvel Hero Card displ
 
 
 ## User Story 
-As a user, I want to be able to search for Marvel Heroes alphabetically, by comic name or by super hero name. So that I can make a card by clicking on the picture of a super hero and have a soundtrack displayed to me on the same card. 
+As a user, I want to be able to search for Marvel characters alphabetically, by comic name or by superhero name. So that I can make a card by clicking on the picture of a super hero and have a soundtrack played to me on the same card. 
 
 
 ## Acceptance Criteria 
@@ -17,7 +17,7 @@ This app meets the following criteria:
 
 ## Mock-up 
 The following animation demonstrates the functionality of the application: 
-![Demo](insert gif of working app)
+![Demo](https://media.giphy.com/media/ujy9f9BElSfFVE4K09/giphy.gif)
 
 
 ## Credits 
@@ -28,21 +28,21 @@ The following animation demonstrates the functionality of the application:
 
 
 ## Badges 
-![JavaScript](https://img.shields.io/badge/JavaScript-57%25-yellow)<br/>
-![CSS](https://img.shields.io/badge/CSS-30.7%20%25-purple) <br/>
-![HTML](https://img.shields.io/badge/HTML-12.3%25-red) <br/>
+![JavaScript](https://img.shields.io/badge/JavaScript-61%6-yellow)<br/>
+![CSS](https://img.shields.io/badge/CSS-30.22%4-purple) <br/>
+![HTML](https://img.shields.io/badge/HTML-12.16%0-red) <br/>
 
 
 ## Tests 
 To test this application, run it on any HTML5 supported browser and follow demonstration from demo display. 
+![LiveLink](https://ifeasome.github.io/Marvel-Cards/)
 
 ## Contributors 
-(add in Eugenio when he commits)
-<a href="https://github.com/ifeasome/Marvel-Heroes/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=ifeasome/Marvel-Heroes" />
-</a>
-
-Made with [contributors-img](https://contributors-img.web.app).
+![Eugenio Espinoza]https://github.com/egitweb {Contributor had git commit issues, so commit numbers do not reflect actual work}<br/>
+![Adrian Pinon]https://github.com/adrianpinon <br/>
+![Jackie Galindo]https://github.com/buildgal <br/>
+![Vincent Favorito]https://github.com/vfavorito <br/>
+![Somelina Obiechina]https://github.com/ifeasome <br/>
 
 
 ## Future Developments
