@@ -12,6 +12,38 @@ html, body {
       height:50px;
   }
 /* end sticky footer css */
+
+/* end sticky footer css */
+
+/* centering content in these coloumns */
+.pure-u-1, .pure-u-md-10-24, .pure-u-md-10-24{
+    text-align: center;
+}
+/* start card gallery css */
+.cardEl{
+    width:220px;
+    height:300px;
+    display: inline-block;
+    margin:15px;
+    border-style: solid;
+    border-color: red;
+}
+.cardName{
+    color:yellow;
+    font-size: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.cardPic{
+    display: block;
+    margin-top:15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    border-radius: 80%;
+    border-style: solid;
+    border-color: red;
+}
 #cardGallery{
     text-align: center;
     color:red;
@@ -19,6 +51,11 @@ html, body {
     font-size: 80px;
     text-decoration: underline;
 }
+#card-gallery{
+    margin:20px;
+}
+/* end gard gallery css */
+
 /* start styling the pictures of supers */
 .heroPics{
     display: inline-block;
@@ -33,7 +70,6 @@ html, body {
     cursor: pointer;
 }
 /* end styling of the pictures of supers */
-
 /* start styling the search buttons */
 #searchButtons{
     text-align: center;
@@ -59,7 +95,6 @@ html, body {
     background-color: red;
     color:white;
 }
-
 #comicButtons, #letterButtons{
     text-align: center;
 } 
@@ -91,7 +126,6 @@ html, body {
     cursor: pointer;
 }
 /* end styling of the search buttons */
-
 /* start styling of the modal info */
 .modalName{
     text-align: center;
@@ -124,7 +158,6 @@ html, body {
     margin-left:132px;
     margin-bottom: 10px;
 }
-
 .pure-radio{
     display: block;
     text-align: center;
@@ -135,13 +168,11 @@ html, body {
     text-align: center;
 }
 /* end styling of the modal info */
-
 /* start iframe styling */
 #player{
     opacity:0;
 }
 /* end iframe css */
-
  body {
    background-color: black;
 }
@@ -155,9 +186,7 @@ html, body {
     width: 100%;
     margin-bottom: 3em;
     display: table;
-    
 }
-
 .banner-head {
     display: table-cell;
     vertical-align: middle;
@@ -179,7 +208,6 @@ html, body {
     padding:3px;
     font-size: large;
 }
-
 /****** start CSS For Modal ******/
 .modal {
     position: fixed;
@@ -226,3 +254,8 @@ background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(139,16,16,1) 86%, rgb
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 /***** End css for modal ******/
+
+
+
+
+
