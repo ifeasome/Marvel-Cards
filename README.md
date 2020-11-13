@@ -28,9 +28,9 @@ The following animation demonstrates the functionality of the application:
 
 
 ## Badges 
-![JavaScript](insert img.shileds.io badge here)
-![CSS](insert img.shileds.io badge here)
-![HTML](insert img.shileds.io badge here)
+![JavaScript](https://img.shields.io/badge/JavaScript-57%25-yellow)<br/>
+![CSS](https://img.shields.io/badge/CSS-30.7%20%25-purple) <br/>
+![HTML](https://img.shields.io/badge/HTML-12.3%25-red) <br/>
 
 
 ## Tests 
@@ -46,33 +46,19 @@ Made with [contributors-img](https://contributors-img.web.app).
 
 
 ## Future Developments
-Add in animations to card created to make it more dynamic 
-Allow users to create super hero team cards as well as individual super hero cards 
-(what other future developments do we need?..)
+Add animations to card created <br/>
+Allow users to create super hero team cards as well as individual super hero cards <br/>
+Allow for card making competitions <br/>
+Assigning value to each card made for competition <br/>
+Determine the winner of each battle and put up on a leader board <br/>
+Allow user to change each song for cards made <br/>
+*When a character does not have a name return a defaulted song instead of undefined <br/>
 
 
 ## License 
-© 2020 Eugenio Espinoza 
-© 2020 Vincent Favorito
-© 2020 Jackie Galindo
-© 2020 Somelina Obiechina 
-© 2020 Adrian Pinon
-
-
-___________________________________________________________________
-Items below need to be deleted. We need to decide what to delete.
-
-## Sketch: 
-[Marvel-Heroes/Assets/Sketch.png]
-
-## APIs to be use:
--	https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0
--	https://developers.soundcloud.com/docs/api/guide#authentication
-
-
-
-### 3.	Gallery of characters created 
-1.	Local storage 
-2.	Keep track of the characters created 
-
+© 2020 Eugenio Espinoza <br/>
+© 2020 Vincent Favorito <br/>
+© 2020 Jackie Galindo <br/>
+© 2020 Somelina Obiechina <br/>
+© 2020 Adrian Pinon <br/>
 
