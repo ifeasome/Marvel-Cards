@@ -16,7 +16,7 @@ This app meets the following criteria:
 
 
 ## Mock-up 
-The following animation demonstrates the functionality of the application: 
+The following animation demonstrates the functionality of the application: <br/>
 ![Demo](https://media.giphy.com/media/ujy9f9BElSfFVE4K09/giphy.gif)
 
 
@@ -28,31 +28,31 @@ The following animation demonstrates the functionality of the application:
 
 
 ## Badges 
-![JavaScript](https://img.shields.io/badge/JavaScript-61%6-yellow)<br/>
-![CSS](https://img.shields.io/badge/CSS-30.22%4-purple) <br/>
-![HTML](https://img.shields.io/badge/HTML-12.16%0-red) <br/>
+![JavaScript](https://img.shields.io/badge/JavaScript-62.5%25-yellow)<br/>
+![CSS](https://img.shields.io/badge/CSS-21.7%25-purple) <br/>
+![HTML](https://img.shields.io/badge/HTML-15.8%25-red) <br/>
 
 
 ## Tests 
 To test this application, run it on any HTML5 supported browser and follow demonstration from demo display. 
-![LiveLink](https://ifeasome.github.io/Marvel-Cards/)
+![LiveLink][https://ifeasome.github.io/Marvel-Cards] <br/>
 
 ## Contributors 
-![Eugenio Espinoza]https://github.com/egitweb {Contributor had git commit issues, so commit numbers do not reflect actual work}<br/>
-![Adrian Pinon]https://github.com/adrianpinon <br/>
-![Jackie Galindo]https://github.com/buildgal <br/>
-![Vincent Favorito]https://github.com/vfavorito <br/>
-![Somelina Obiechina]https://github.com/ifeasome <br/>
+![EugenioEspinoza][https://github.com/egitweb] {Contributor had git commit issues, so commit numbers do not reflect actual work}<br/>
+![Adrian Pinon][https://github.com/adrianpinon] <br/>
+![Jackie Galindo][https://github.com/buildgal] <br/>
+![Vincent Favorito][https://github.com/vfavorito] <br/>
+![Somelina Obiechina][https://github.com/ifeasome] <br/>
 
 
 ## Future Developments
-Add animations to card created <br/>
-Allow users to create super hero team cards as well as individual super hero cards <br/>
-Allow for card making competitions <br/>
-Assigning value to each card made for competition <br/>
-Determine the winner of each battle and put up on a leader board <br/>
-Allow user to change each song for cards made <br/>
-*When a character does not have a name return a defaulted song instead of undefined <br/>
+- Add animations to card created <br/>
+- Allow users to create super hero team cards as well as individual super hero cards <br/>
+- Allow for card making competitions <br/>
+- Assigning value to each card made for competition <br/>
+- Determine the winner of each battle and put up on a leader board <br/>
+- Allow user to change each song for cards made <br/>
+
 
 
 ## License 
