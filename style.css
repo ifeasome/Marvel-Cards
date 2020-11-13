@@ -33,7 +33,6 @@ html, body {
     cursor: pointer;
 }
 /* end styling of the pictures of supers */
-
 /* start styling the search buttons */
 #searchButtons{
     text-align: center;
@@ -59,7 +58,6 @@ html, body {
     background-color: red;
     color:white;
 }
-
 #comicButtons, #letterButtons{
     text-align: center;
 } 
@@ -91,7 +89,6 @@ html, body {
     cursor: pointer;
 }
 /* end styling of the search buttons */
-
 /* start styling of the modal info */
 .modalName{
     text-align: center;
@@ -124,7 +121,6 @@ html, body {
     margin-left:132px;
     margin-bottom: 10px;
 }
-
 .pure-radio{
     display: block;
     text-align: center;
@@ -135,13 +131,11 @@ html, body {
     text-align: center;
 }
 /* end styling of the modal info */
-
 /* start iframe styling */
 #player{
     opacity:0;
 }
 /* end iframe css */
-
  body {
    background-color: black;
 }
@@ -155,9 +149,7 @@ html, body {
     width: 100%;
     margin-bottom: 3em;
     display: table;
-    
 }
-
 .banner-head {
     display: table-cell;
     vertical-align: middle;
@@ -179,7 +171,6 @@ html, body {
     padding:3px;
     font-size: large;
 }
-
 /****** start CSS For Modal ******/
 .modal {
     position: fixed;
