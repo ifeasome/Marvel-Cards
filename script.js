@@ -204,27 +204,27 @@ $(document).ready(function () {
         for (let i = 0; i < localStorage.length; i++) {
             let newCard = JSON.parse(localStorage.getItem(i));
             cards.push(newCard);
-            console.log(cards);
         }
-        if (cards.length != null) {
+        if (cards.length !== null) {
             $("#card-gallery").empty();
             for (let i = 0; i < cards.length; i++) {
-                let cardEl = $("<div>");
-                cardEl.addClass("cardEl");
-                let cardStyle = cards[i].style;
-                cardEl.css("background-image", "url(" + cardStyle + ")");
-                let cardPic = $("<img>");
-                cardPic.addClass("cardPic");
-                cardPic.attr("src", cards[i].pic);
-                let cardName = $("<h5>");
-                cardName.text(cards[i].name);
-                cardName.addClass("cardName");
-                cardEl.append(cardPic, cardName);
-                $("#card-gallery").prepend(cardEl);
+                if (typeof cards[i] === "object" && cards[i] !== null) {
+                    if ("style" in cards[i]) {
+                        let cardEl = $("<div>");
+                        cardEl.addClass("cardEl");
+                        let cardStyle = cards[i].style;
+                        cardEl.css("background-image", "url(" + cardStyle + ")");
+                        let cardPic = $("<img>");
+                        cardPic.addClass("cardPic");
+                        cardPic.attr("src", cards[i].pic);
+                        let cardName = $("<h5>");
+                        cardName.text(cards[i].name);
+                        cardName.addClass("cardName");
+                        cardEl.append(cardPic, cardName);
+                        $("#card-gallery").prepend(cardEl);
+                    }
+                }
             }
-        }
-        else {
-            return;
         }
     }
     // this event listener is triggered when you click a comic and displays the characters in that comic
