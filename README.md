@@ -35,7 +35,7 @@ The following animation demonstrates the functionality of the application: <br/>
 
 ## Tests 
 To test this application, run it on any HTML5 supported browser and follow demonstration from demo display. 
-![LiveLink][https://ifeasome.github.io/Marvel-Cards] <br/>
+[LiveLink]https://ifeasome.github.io/Marvel-Cards] <br/>
 
 ## Contributors 
 ![EugenioEspinoza][https://github.com/egitweb] {Contributor had git commit issues, so commit numbers do not reflect actual work}<br/>
