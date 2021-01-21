@@ -35,14 +35,14 @@ The following animation demonstrates the functionality of the application: <br/>
 
 ## Tests 
 To test this application, run it on any HTML5 supported browser and follow demonstration from demo display. 
-![LiveLink][https://ifeasome.github.io/Marvel-Cards] <br/>
+[LiveLink](https://ifeasome.github.io/Marvel-Cards) <br/>
 
 ## Contributors 
-![EugenioEspinoza][https://github.com/egitweb] {Contributor had git commit issues, so commit numbers do not reflect actual work}<br/>
-![Adrian Pinon][https://github.com/adrianpinon] <br/>
-![Jackie Galindo][https://github.com/buildgal] <br/>
-![Vincent Favorito][https://github.com/vfavorito] <br/>
-![Somelina Obiechina][https://github.com/ifeasome] <br/>
+[EugenioEspinoza](https://github.com/egitweb) <br/>
+[Adrian Pinon](https://github.com/adrianpinon) <br/>
+[Jackie Galindo](https://github.com/buildgal) <br/>
+[Vincent Favorito](https://github.com/vfavorito) <br/>
+[Somelina Obiechina](https://github.com/ifeasome) <br/>
 
 
 ## Future Developments
